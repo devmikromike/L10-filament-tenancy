@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +28,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::prefix('admin')->group(function(){
+    Route::post('/logout',LogoutController::class)->name('filament.auth.logout');
+});
+
 
 require __DIR__.'/auth.php';
