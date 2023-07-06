@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\LogoutController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +38,7 @@ Route::middleware('auth')->group(function () {
 /* Filamen backend logout */
 Route::prefix('admin')->group(function(){
     Route::post('/logout',LogoutController::class)->name('filament.auth.logout');
+
 });
 /* Filamen backend logout */
 
