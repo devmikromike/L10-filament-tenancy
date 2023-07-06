@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Http\Responses\LoginResponse;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -18,6 +19,10 @@ class AuthenticatedSessionController extends Controller
     public function create(): View
     {
         return view('auth.login');
+    }
+    public function backend(): View
+    {
+        return view('vendor.filament.login');
     }
 
     /**

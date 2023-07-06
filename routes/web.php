@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\LogoutController;
 
@@ -38,7 +39,8 @@ Route::middleware('auth')->group(function () {
 /* Filamen backend logout */
 Route::prefix('admin')->group(function(){
     Route::post('/logout',LogoutController::class)->name('filament.auth.logout');
-
+    Route::get('/login', [AuthenticatedSessionController::class, 'backend'])
+                ->name('filament.auth.login');
 });
 /* Filamen backend logout */
 
